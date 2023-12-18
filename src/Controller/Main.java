@@ -19,42 +19,42 @@ import java.util.HashMap;
 import static model.BookDaoImp.data;
 import static model.BookDaoImp.loadImage;
 
-// The Main class acts as the entry point for the application.
+// Main класс нь програмын оролцогч байна.
 public class Main {
 
-    // HashMap to store user login information.
+    // Хэш мап дээр хэрэглэгчийн нэвтрэх мэдээллийг хадгалах.
     public static HashMap<String, User> userLogin = new HashMap<String, User>();
 
-    // Column names for the table displaying book information.
+    // Номын мэдээллийг харуулах хүснэгтийн баганы нэрүүд.
     public static String[] columns = {"id", "Зураг", "Нэр", "Төрөл", "Зохиолч", "Үнэ", "Үлдэгдэл ширхэг", "Тайлбар", ""};
 
-    // Table model to store and manage data for the book table.
+    // Номын хүснэгтийг хадгалах ба удирдах модел.
     public static TableModel model;
 
-    // Database connection instance.
+    // Мэдээллийн сангийн холболт.
     public static DatabaseConnection dbConnection;
 
-    // Static block to initialize the database connection.
+    // Статик блок нь мэдээллийн сантай холбогдсон үед анхны үеийн холболтыг эхлүүлэх.
     static {
         try {
             dbConnection = DatabaseConnection.getInstance();
         } catch (SQLException e) {
-            // Throw a runtime exception if there is an issue initializing the database connection.
+            // Мэдээллийн сантай холболтын эхлэлд алдаа гарвал runtime алдаа буцаах.
             throw new RuntimeException(e);
         }
     }
 
-    // Data access objects for users and books.
+    // Хэрэглэгчид болон номуудын өгөгдлийн доступ объектууд.
     public static userDaoImp usersD = new userDaoImp(dbConnection);
     public static BookDaoImp booksD = new BookDaoImp(dbConnection);
 
-    // Method to retrieve data for books and populate the table model.
+    // Номын өгөгдлийг хүснэгтэд авах ба хүснэгтийн моделийг бүтцийн мэдээлэл болон баганы нэртэй хамт үүсгэх.
     public static void getDataBooks() throws SQLException {
-        // Retrieve data for books from the database.
+        // Номын өгөгдлийг мэдээллийн сангаас авах.
         booksD.getDataBooks();
-        // Create a table model with the retrieved data and column names.
+        // Олсон өгөгдлийг баганы мэдээллийг, баганы нэрүүдээр дамжуулан хүснэгтийг үүсгэх.
         model = new DefaultTableModel(data, columns) {
-            // Override getColumnClass to specify the class type for each column, especially for the "Зураг" column.
+            // getColumnClass-ийг нэрээсээ зохиомжлохын тулд getColumnClass-ийг дахин бичнэ, зөвхөн "Зураг" баганад харгалзах class-ийг тодорхойлох.
             @Override
             public Class<?> getColumnClass(int column) {
                 return column == 1 ? ImageIcon.class : Object.class;
@@ -62,16 +62,16 @@ public class Main {
         };
     }
 
-    // Constructor to initialize user login data.
+    // Хэрэглэгчийн нэвтрэх мэдээллийг эхлүүлэх төлөвт байгаа байна.
     public Main() throws SQLException {
         userLogin = usersD.getDataUsers();
     }
 
-    // Main method, the entry point for the application.
+    // Main метод нь програмын оролцогч байна, гүйцэтгэсэн нүдэнд.
     public static void main(String[] args) throws SQLException {
-        // Create an instance of the Main class to initialize user login data.
+        // Хэрэглэгчийн нэвтрэх мэдээллийг эхлүүлэх Main классын объект үүсгэнэ.
         new Main();
-        // Create an instance of the Login view.
+        // Нэвтрэх цонхны объект үүсгэнэ.
         Login L = new Login();
     }
 }
