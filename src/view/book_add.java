@@ -1,3 +1,13 @@
+/**
+ * The book_add class provides a Swing-based user interface for adding or editing book entries in a database,
+ * with input validation and corresponding database operations based on user actions.
+ * It follows Java coding conventions for readability and maintainability.
+ * 
+ * @author [Enkhzaya]
+ * @version 1.0
+ * @since [2023-12-07]
+ */
+
 package view;
 
 import Controller.Main;
