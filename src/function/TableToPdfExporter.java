@@ -1,3 +1,14 @@
+/**
+ * The TableToPdfExporter class provides a method to export JTable data to a PDF file using the iText library.
+ * It creates a PDF document in landscape orientation and populates it with data from the provided JTable.
+ * The class follows Java coding conventions for readability and maintainability.
+ * 
+ * Note: Make sure to include the iText library in your project to use this exporter.
+ * @author [Enkhzaya]
+ * @version 1.0
+ * @since [2023-11-30]
+ */
+
 package function;
 
 import java.io.FileOutputStream;
@@ -10,7 +21,12 @@ import javax.swing.JTable;
 
 public class TableToPdfExporter {
 
-    // Method to export JTable data to a PDF file
+    /**
+     * Method to export JTable data to a PDF file.
+     *
+     * @param table     The JTable containing the data to be exported.
+     * @param filePath  The file path where the PDF will be saved.
+     */
     public static void export(JTable table, String filePath) {
         try {
             // Create a new Document with landscape orientation
@@ -49,4 +65,3 @@ public class TableToPdfExporter {
     }
 
 }
-
