@@ -55,7 +55,7 @@ public class Login extends JFrame{
                         Home H = new Home();
                     }
                 }else{
-                    JOptionPane.showMessageDialog(LoginButton, "И-мэйл эсвэл нууц үг буруу байна");
+                    JOptionPane.showMessageDialog(LoginButton, "И-мэйл эсвэл нууц үг буруу байна!");
                 }
             }
         });
@@ -69,9 +69,9 @@ public class Login extends JFrame{
                     Rmail.setText("");
                     Rpass.setText("");
                     Rpass2.setText("");
-                    JOptionPane.showMessageDialog(LoginButton, "Амжилттай бүртгэлээ");
+                    JOptionPane.showMessageDialog(LoginButton, "Амжилттай бүртгэгдлээ.");
                 }else{
-                    JOptionPane.showMessageDialog(LoginButton, "Нууц үг адилхан биш байна");
+                    JOptionPane.showMessageDialog(LoginButton, "Нууц үг адилхан биш байна.");
                 }
             }
         });
