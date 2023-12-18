@@ -1,3 +1,13 @@
+/**
+ * The Main class acts as the entry point for the application.
+ * It initializes various components such as the user login data, database connection, and book-related data.
+ * The class follows Java coding conventions for readability and maintainability.
+ * 
+ * @author [Enkhzaya]
+ * @version 1.0
+ * @since [2023-11-20]
+ */
+
 package Controller;
 
 import model.*;
@@ -48,7 +58,10 @@ public class Main {
     public static userDaoImp usersD = new userDaoImp(dbConnection);
     public static BookDaoImp booksD = new BookDaoImp(dbConnection);
 
-    // Method to retrieve data for books and populate the table model.
+    /**
+     * Method to retrieve data for books and populate the table model.
+     * @throws SQLException if there is an issue with the database connection.
+     */
     public static void getDataBooks() throws SQLException {
         // Retrieve data for books from the database.
         booksD.getDataBooks();
@@ -62,12 +75,19 @@ public class Main {
         };
     }
 
-    // Constructor to initialize user login data.
+    /**
+     * Constructor to initialize user login data.
+     * @throws SQLException if there is an issue with the database connection.
+     */
     public Main() throws SQLException {
         userLogin = usersD.getDataUsers();
     }
 
-    // Main method, the entry point for the application.
+    /**
+     * Main method, the entry point for the application.
+     * @param args the command line arguments.
+     * @throws SQLException if there is an issue with the database connection.
+     */
     public static void main(String[] args) throws SQLException {
         // Create an instance of the Main class to initialize user login data.
         new Main();
